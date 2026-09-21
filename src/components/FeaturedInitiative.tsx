@@ -108,8 +108,13 @@ export const FeaturedInitiative: React.FC<FeaturedInitiativeProps> = ({ lang }) 
             </p>
 
             <div className="pt-2 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-stone-900 text-stone-50 font-serif flex items-center justify-center text-sm font-medium">
-                GJ
+              <div className="w-11 h-11 rounded-lg overflow-hidden border border-stone-300 shadow-xs shrink-0 bg-stone-100">
+                <img 
+                  src={personalInfo.avatarUrl} 
+                  alt={lang === 'en' ? personalInfo.name.en : personalInfo.name.ko}
+                  className="w-full h-full object-cover object-center"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <div className="text-sm font-semibold text-stone-900">

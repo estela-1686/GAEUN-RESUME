@@ -81,8 +81,13 @@ export const QuoteBanner: React.FC<QuoteBannerProps> = ({ lang }) => {
             </blockquote>
 
             <div className="flex items-center gap-3.5 pt-2">
-              <div className="w-11 h-11 rounded-full bg-stone-800 border border-stone-600 text-white font-serif flex items-center justify-center font-semibold text-base shadow-sm">
-                GJ
+              <div className="w-12 h-12 rounded-xl overflow-hidden border border-stone-600 shadow-sm shrink-0 bg-stone-800">
+                <img 
+                  src={personalInfo.avatarUrl} 
+                  alt={lang === 'en' ? personalInfo.name.en : personalInfo.name.ko}
+                  className="w-full h-full object-cover object-center"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <div className="text-base font-bold text-white tracking-wide">

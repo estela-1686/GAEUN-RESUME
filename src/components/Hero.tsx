@@ -16,6 +16,21 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenResume }) => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
         
+        {/* Profile Portrait Illustration (Square) */}
+        <div className="flex justify-center mb-6">
+          <div className="relative group">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-stone-300/90 shadow-md p-1 bg-white">
+              <img 
+                src={personalInfo.avatarUrl} 
+                alt={lang === 'en' ? personalInfo.name.en : personalInfo.name.ko}
+                className="w-full h-full object-cover rounded-xl"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow-xs" title="Active" />
+          </div>
+        </div>
+
         {/* Top Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-stone-300/80 bg-stone-100/80 backdrop-blur-xs mb-8">
           <Sparkles className="w-3.5 h-3.5 text-stone-600" />

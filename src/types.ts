@@ -34,6 +34,16 @@ export interface AwardItem {
   badge: { en: string; ko: string };
 }
 
+export interface ResearchInterestItem {
+  id: string;
+  title: { en: string; ko: string };
+  category: { en: string; ko: string };
+  badge: { en: string; ko: string };
+  focusKeywords: string[];
+  description: { en: string; ko: string };
+  futureOutlook: { en: string; ko: string };
+}
+
 export interface ExtraExperienceItem {
   id: string;
   title: { en: string; ko: string };

@@ -1,4 +1,4 @@
-import { ProjectItem, WorkExperienceItem, AwardItem, ExtraExperienceItem, SkillCategory, CertificateItem, FaqItem } from '../types';
+import { ProjectItem, WorkExperienceItem, AwardItem, ResearchInterestItem, ExtraExperienceItem, SkillCategory, CertificateItem, FaqItem } from '../types';
 
 export const personalInfo = {
   name: {
@@ -14,11 +14,12 @@ export const personalInfo = {
     ko: "국제개발협력과 청정에너지, 그리고 AI 융합 기술로 지속 가능한 미래를 설계합니다."
   },
   bio: {
-    en: "B.A. Candidate at Busan University of Foreign Studies with a cumulative GPA of 4.37 / 4.5. Student Body President of International Development Cooperation, Humanities 100 Years Scholar, and youth delegate with field experience spanning Laos, Rwanda TF, and national climate conferences.",
-    ko: "부산외국어대학교 국제개발협력전공 재학 중(학점 4.37/4.5). 국제개발협력학부 학생회장 및 인문100년장학생으로서 라오스 해외 프론티어, 르완다 TF, LCOY Korea 기후 컨퍼런스 기획 등 글로벌 현장과 정책을 연결하고 있습니다."
+    en: "B.A. Candidate at Busan University of Foreign Studies with a cumulative GPA of 4.37 / 4.5. Student Body President of International Development Cooperation and youth delegate with field experience spanning Laos, Rwanda TF, renewable energy policy research, and national climate conferences.",
+    ko: "부산외국어대학교 국제개발협력전공 재학 중(학점 4.37/4.5). 국제개발협력학부 학생회장으로서 라오스 해외 프론티어, 르완다 TF, 재생에너지 전환 정책 연구 및 LCOY Korea 기후 컨퍼런스 기획 등 글로벌 현장과 연구를 연결하고 있습니다."
   },
   email: "jeounggaeun@naver.com",
   phone: "(+82) 010-4822-3777",
+  avatarUrl: "/src/assets/images/professional_portrait_photo_1789970422692.jpg",
   location: {
     en: "Busan & Seoul, South Korea",
     ko: "대한민국 부산 및 서울"
@@ -473,6 +474,81 @@ export const workExperienceData: WorkExperienceItem[] = [
   }
 ];
 
+export const researchInterestsData: ResearchInterestItem[] = [
+  {
+    id: "clean-energy-oda",
+    title: {
+      en: "Renewable Energy Transition & Climate ODA in Developing Countries",
+      ko: "개도국 신재생에너지 전환 및 기후 공적개발원조(Climate ODA)"
+    },
+    category: {
+      en: "Energy & International Development",
+      ko: "에너지 정책 및 개발협력"
+    },
+    badge: {
+      en: "Core Research Focus",
+      ko: "핵심 연구 분야"
+    },
+    focusKeywords: ["Climate ODA", "UN SDGs 7 & 13", "Renewable Energy Transition", "Green Climate Fund", "Latin America & Africa"],
+    description: {
+      en: "Investigating effective ODA financing and policy transfer mechanisms for off-grid renewable energy infrastructure in Global South communities, with special emphasis on Latin America and Sub-Saharan Africa.",
+      ko: "글로벌 사우스(중남미 및 아프리카 개도국)의 분산형 재생에너지 인프라 구축을 위한 기후 재원(GCF 등) 연계 모델 및 개발원조(ODA) 정책 협력 메커니즘을 심층 연구합니다."
+    },
+    futureOutlook: {
+      en: "Designing scalable energy-poverty reduction models combining institutional multilateral governance with local community participation.",
+      ko: "다자간 개발 거버넌스와 현지 주민 참여를 결합하여 에너지 빈곤 퇴치와 온실가스 감축을 동시에 달성하는 실증적 정책 모델 설계."
+    }
+  },
+  {
+    id: "ai-data-governance",
+    title: {
+      en: "AI Agent Workflows & Quantitative Data in Global Development",
+      ko: "국제개발 정책을 위한 AI Agent 워크플로우 및 데이터 거버넌스"
+    },
+    category: {
+      en: "AI & Public Policy",
+      ko: "AI 융합 및 공공 정책"
+    },
+    badge: {
+      en: "Emerging Interdisciplinary",
+      ko: "융복합 연구 분야"
+    },
+    focusKeywords: ["AI Agent Systems", "Data-driven PCM", "Predictive Development Index", "Multilingual LLM Prompting"],
+    description: {
+      en: "Exploring how automated AI agent systems and structured quantitative metrics can enhance ODA project feasibility assessments, project cycle management (PCM), and multilateral outcome monitoring.",
+      ko: "AI 에이전트 자동화 파이프라인과 실무 데이터 분석 기법을 ODA 사업 기획(PCM), 성과 평가 체계, 다국어 국제기구 정책 문서 분석에 융합하는 연구를 진행합니다."
+    },
+    futureOutlook: {
+      en: "Developing transparent, data-driven decision frameworks for international organizations and ODA implementing agencies.",
+      ko: "국제기구 및 원조 집행 기관의 사업 타당성 검토와 모니터링 효율성을 극대화하는 신뢰 기반 데이터 프레임워크 구축."
+    }
+  },
+  {
+    id: "just-transition-youth",
+    title: {
+      en: "Just Transition, Intergenerational Equity & Youth Climate Advocacy",
+      ko: "정의로운 전환(Just Transition)과 세대 간 기후 정의 거버넌스"
+    },
+    category: {
+      en: "Climate Governance",
+      ko: "기후 거버넌스 및 외교"
+    },
+    badge: {
+      en: "Policy & Field Action",
+      ko: "정책 및 현장 연계"
+    },
+    focusKeywords: ["Just Transition", "UNFCCC YOUNGO", "LCOY Korea", "Intergenerational Equity", "Youth Policy Statements"],
+    description: {
+      en: "Analyzing institutional channels through which youth climate declarations (such as LCOY under UNFCCC YOUNGO) translate into actionable national and municipal climate adaptation strategies.",
+      ko: "UNFCCC 청년 대표부(YOUNGO) 및 LCOY Korea 활동을 바탕으로, 청년 세대의 기후 정의 목소리가 실제 국가 및 지자체 탄소중립 정책으로 입법화·수렴되는 거버넌스 프로세스를 분석합니다."
+    },
+    futureOutlook: {
+      en: "Bridging grassroots civil youth movements with official intergovernmental negotiation tables to guarantee inclusive climate justice.",
+      ko: "청년 기후 이니셔티브와 공식 다자간 외교 협상 테이블을 연결하여 포용적이고 정의로운 기후 전환 경로 확립."
+    }
+  }
+];
+
 export const awardsData: AwardItem[] = [
   {
     id: "aimun",
@@ -495,29 +571,6 @@ export const awardsData: AwardItem[] = [
     badge: {
       en: "Excellence Award",
       ko: "모의UN 우수상"
-    }
-  },
-  {
-    id: "humanities-100-scholarship",
-    title: {
-      en: "Humanities 100 Years Scholarship Recipient",
-      ko: "한국장학재단 '인문100년장학금' 장학생 선발"
-    },
-    organization: {
-      en: "Korea Student Aid Foundation (KOSAF)",
-      ko: "한국장학재단"
-    },
-    date: {
-      en: "Jun. 2026",
-      ko: "2026년 6월"
-    },
-    description: {
-      en: "Selected for South Korea's premier national government merit scholarship recognizing top undergraduate scholars in the humanities and social sciences, covering full tuition and academic allowances.",
-      ko: "인문사회계열 최고 권위의 대한민국 국가 우수 장학 프로그램으로, 탁월한 학업 성적(4.37/4.5)과 전공 발전 잠재력을 인정받아 전액 장학생으로 최종 선발."
-    },
-    badge: {
-      en: "National Merit Scholar",
-      ko: "국가 최고 권위 장학금"
     }
   }
 ];
@@ -891,12 +944,12 @@ export const faqData: FaqItem[] = [
   },
   {
     question: {
-      en: "What is the Humanities 100 Years Scholarship?",
-      ko: "한국장학재단 '인문100년장학금'은 어떤 장학금인가요?"
+      en: "What are Gaeun's primary research interests and future academic plans?",
+      ko: "가은 님이 가장 중점적으로 탐구하는 연구 분야와 학문적 관심사는 무엇인가요?"
     },
     answer: {
-      en: "The Humanities 100 Years Scholarship (인문100년장학금) is South Korea's highest government merit honor administered by the Korea Student Aid Foundation (KOSAF). Awarded only to top-tier university students demonstrating outstanding academic performance (4.37/4.5) and immense future leadership potential in social sciences and humanities.",
-      ko: "한국장학재단이 미래 인문·사회계열 핵심 인재를 육성하기 위해 선발하는 국가 최우수 장학 프로그램입니다. 전 학기 최우수 성적(4.37/4.5)과 탁월한 대외 활동 역량을 인정받아 등록금 전액 및 학업 장려금을 지원받는 국가 영예입니다."
+      en: "Gaeun is deeply invested in three interdisciplinary areas: 1) Clean Energy & Climate ODA in Global South communities, 2) Data-driven governance and AI agent workflows for international development policy (PCM), and 3) Youth-led climate advocacy mechanisms (such as UNFCCC YOUNGO and LCOY Korea).",
+      ko: "크게 세 가지 융합 연구에 집중하고 있습니다. 첫째, 개도국 분산형 신재생에너지 인프라 구축과 기후 ODA 재원 모델 연구, 둘째, AI 에이전트와 정량적 데이터를 활용한 ODA 사업 주기(PCM) 의사결정 체계화, 셋째, UNFCCC YOUNGO 및 LCOY Korea를 기반으로 한 청년 세대의 정의로운 기후 전환(Just Transition) 정책 거버넌스입니다."
     }
   },
   {

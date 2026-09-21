@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Language } from '../types';
-import { workExperienceData, awardsData, extraExperiencesData } from '../data/portfolioData';
+import { workExperienceData, researchInterestsData, extraExperiencesData } from '../data/portfolioData';
 import { 
   Briefcase, 
   Award, 
@@ -8,9 +8,11 @@ import {
   MapPin, 
   Sparkles, 
   CheckCircle2, 
-  Trophy, 
+  BookOpen, 
   GraduationCap,
-  ExternalLink
+  ExternalLink,
+  Compass,
+  ArrowRight
 } from 'lucide-react';
 
 interface ExperienceTimelineProps {
@@ -23,56 +25,73 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
   return (
     <section id="experience" className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      {/* 1. Awards Spotlight (Styled like the prominent cards in the user reference image) */}
-      <div id="honors" className="mb-16">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-amber-700" />
-            <h3 className="font-serif text-xl sm:text-2xl font-medium text-stone-900">
-              {lang === 'en' ? 'Honors & National Scholarships' : '수상 및 장학 내역'}
-            </h3>
+      {/* 1. Research Interests Spotlight (관심 있는 연구 분야) */}
+      <div id="research-interests" className="mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-800">
+              <Compass className="w-5 h-5 text-stone-900" />
+            </div>
+            <div>
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-stone-900">
+                {lang === 'en' ? 'Research Interests & Strategic Focus' : '관심 연구 분야 및 학문적 관심사'}
+              </h3>
+              <p className="text-xs text-stone-500 font-light mt-0.5">
+                {lang === 'en'
+                  ? 'Key thematic inquiries connecting renewable energy transition, global ODA, and AI data systems.'
+                  : '신재생에너지 전환, 글로벌 개발원조(ODA), AI 데이터 시스템을 융합하는 핵심 학문 관심사입니다.'}
+              </p>
+            </div>
           </div>
-          <span className="text-xs text-stone-500 font-mono">
-            {lang === 'en' ? 'Verified Distinctions' : '공식 수훈 기록'}
+          <span className="text-xs text-stone-500 font-mono self-start sm:self-auto bg-stone-100 px-2.5 py-1 rounded-full border border-stone-200/80">
+            {lang === 'en' ? 'Academic Inquiries' : '연구 이니셔티브'}
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {awardsData.map((award) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {researchInterestsData.map((item) => (
             <div
-              key={award.id}
-              className="rounded-2xl border border-stone-200/90 bg-[#F4F0E8]/50 p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow"
+              key={item.id}
+              className="rounded-2xl border border-stone-200/90 bg-[#FBF9F5] p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-stone-300 transition-all group"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-3.5">
                   <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-stone-900 text-stone-50">
-                    {award.badge[lang]}
+                    {item.badge[lang]}
                   </span>
-                  <span className="text-xs font-mono text-stone-500">
-                    {award.date[lang]}
+                  <span className="text-[11px] font-mono text-stone-500">
+                    {item.category[lang]}
                   </span>
                 </div>
 
-                <h4 className="font-serif text-xl font-medium text-stone-900 leading-snug mb-2">
-                  {award.title[lang]}
+                <h4 className="font-serif text-lg font-medium text-stone-900 leading-snug mb-3 group-hover:text-stone-700 transition-colors">
+                  {item.title[lang]}
                 </h4>
 
-                <p className="text-xs font-semibold text-stone-600 mb-3">
-                  {award.organization[lang]}
+                <p className="text-xs text-stone-600 font-light leading-relaxed mb-4 break-keep">
+                  {item.description[lang]}
                 </p>
 
-                <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
-                  {award.description[lang]}
-                </p>
+                {/* Focus Keywords Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {item.focusKeywords.map((kw) => (
+                    <span
+                      key={kw}
+                      className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200/70"
+                    >
+                      #{kw}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-stone-200/80 flex items-center justify-between text-[11px] text-stone-500">
-                <span>{lang === 'en' ? 'Official Distinction' : '공식 수여'}</span>
-                <span className="font-medium text-stone-900">
-                  {award.id === 'humanities-100-scholarship' 
-                    ? (lang === 'en' ? 'Full Tuition & Living Grant' : '전액 장학금 및 학업장려비 지원') 
-                    : (lang === 'en' ? 'Top Delegation Honor' : '외교 협상 우수 표창')}
-                </span>
+              <div className="mt-4 pt-3.5 border-t border-stone-200/80">
+                <div className="text-[10px] uppercase font-bold tracking-wider text-stone-400 mb-1">
+                  {lang === 'en' ? 'Research Vision' : '연구 지향점 및 비전'}
+                </div>
+                <p className="text-[11px] text-stone-700 font-normal leading-relaxed break-keep">
+                  {item.futureOutlook[lang]}
+                </p>
               </div>
             </div>
           ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language } from '../types';
-import { personalInfo, projectsData, workExperienceData, awardsData, extraExperiencesData, certificatesList } from '../data/portfolioData';
-import { X, Printer, Download, Mail, Phone, MapPin, GraduationCap, Award, Briefcase, FileText } from 'lucide-react';
+import { personalInfo, projectsData, workExperienceData, researchInterestsData, awardsData, extraExperiencesData, certificatesList } from '../data/portfolioData';
+import { X, Printer, Download, Mail, Phone, MapPin, GraduationCap, Award, Briefcase, FileText, Compass } from 'lucide-react';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -54,27 +54,40 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, lang, onClose 
           
           {/* Header */}
           <div className="border-b-2 border-stone-900 pb-5">
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-              <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
-                {personalInfo.name.en}
-                <span className="text-xl font-normal text-stone-500 ml-2">
-                  ({personalInfo.name.ko})
-                </span>
-              </h1>
-              <div className="text-xs sm:text-sm text-stone-600 flex flex-wrap gap-x-4 gap-y-1">
-                <span className="flex items-center gap-1">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-stone-300 shrink-0 bg-stone-100 shadow-2xs">
+                  <img 
+                    src={personalInfo.avatarUrl} 
+                    alt={personalInfo.name.ko} 
+                    className="w-full h-full object-cover object-center"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div>
+                  <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-stone-900">
+                    {personalInfo.name.en}
+                    <span className="text-lg font-normal text-stone-500 ml-2">
+                      ({personalInfo.name.ko})
+                    </span>
+                  </h1>
+                  <p className="text-xs text-stone-500 mt-1">
+                    Busan, Republic of Korea · Student Body President, Dept. of International Development Cooperation
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-xs text-stone-600 flex flex-col gap-1 sm:text-right">
+                <span className="flex items-center sm:justify-end gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-stone-500" />
                   {personalInfo.phone}
                 </span>
-                <span className="flex items-center gap-1">
+                <span className="flex items-center sm:justify-end gap-1.5">
                   <Mail className="w-3.5 h-3.5 text-stone-500" />
                   {personalInfo.email}
                 </span>
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-stone-500 mt-2">
-              Busan, Republic of Korea · Student Body President, Dept. of International Development Cooperation
-            </p>
           </div>
 
           {/* Education */}
@@ -175,10 +188,28 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, lang, onClose 
             </div>
           </div>
 
+          {/* Research Interests */}
+          <div>
+            <h2 className="text-xs uppercase tracking-widest font-bold text-stone-900 border-b border-stone-300 pb-1 mb-3">
+              Research Interests & Academic Inquiries
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              {researchInterestsData.map((item) => (
+                <div key={item.id} className="p-2.5 rounded-lg bg-stone-50 border border-stone-200">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-semibold text-stone-900 leading-snug">{item.title[lang]}</span>
+                  </div>
+                  <span className="inline-block text-[10px] text-stone-500 font-mono mb-1">{item.category[lang]}</span>
+                  <p className="text-stone-600 text-[11px] leading-relaxed">{item.description[lang]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Awards & Honors */}
           <div>
             <h2 className="text-xs uppercase tracking-widest font-bold text-stone-900 border-b border-stone-300 pb-1 mb-3">
-              Awards & Honors
+              Awards & Distinctions
             </h2>
             <div className="space-y-3">
               {awardsData.map((award) => (

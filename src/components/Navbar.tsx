@@ -17,8 +17,8 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, setLang, onOpenResume }) =
     { href: "#majors", label: { en: "4 Majors", ko: "4대 전공 융합" } },
     { href: "#projects", label: { en: "Projects", ko: "프로젝트" } },
     { href: "#skills", label: { en: "Skills", ko: "전문 역량" } },
+    { href: "#research-interests", label: { en: "Research", ko: "연구 관심 분야" } },
     { href: "#experience", label: { en: "Experience", ko: "경력 및 대외활동" } },
-    { href: "#honors", label: { en: "Honors", ko: "수상 및 장학" } },
     { href: "#faq", label: { en: "FAQ", ko: "FAQ" } },
   ];
 
